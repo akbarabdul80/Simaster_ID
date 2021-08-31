@@ -33,9 +33,12 @@ class MainActivity : AppCompatActivity() {
                     InputStreamReader(p.inputStream)
                 )
 
+
                 val response = standardIn.readText()
                 Log.e("Data", response)
                 if (response != ""){
+                    val userAgent = System.getProperty("http.agent")
+
                     val name = response
                         .replace("&quot;", "")
                         .split("<string name=\"user_nama_lengkap\">")[1]
@@ -54,8 +57,9 @@ class MainActivity : AppCompatActivity() {
                     binding.tvName.text = name
                     binding.tvIDDevice.text = "Device ID : $deviceID"
                     binding.tvIDGroup.text = "Group ID : $groupID"
+                    binding.tvUserAgent.text = userAgent
                 }else{
-                    binding.tvIDDevice.text = "Simaster not found!"
+                    binding.tvIDDevice.text = "Simaster not found or you are not logged in!"
                 }
 
             }
