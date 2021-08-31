@@ -34,23 +34,23 @@ class MainActivity : AppCompatActivity() {
                 )
 
 
-                val response = standardIn.readText()
+                val response = standardIn
+                    .readText()
+                    .replace("&quot;", "")
+
                 Log.e("Data", response)
                 if (response != ""){
                     val userAgent = System.getProperty("http.agent")
 
                     val name = response
-                        .replace("&quot;", "")
                         .split("<string name=\"user_nama_lengkap\">")[1]
                         .split("</string>")[0]
 
                     val groupID = response
-                        .replace("&quot;", "")
                         .split("<string name=\"group_menu\">")[1]
                         .split("</string>")[0]
 
                     val deviceID = response
-                        .replace("&quot;", "")
                         .split("<string name=\"bearer\">")[1]
                         .split("</string>")[0]
 

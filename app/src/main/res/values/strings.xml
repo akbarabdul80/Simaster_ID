@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simaster ID</string>
+    <string name="title_get_simaster_id">Get Simaster ID</string>
 </resources>
